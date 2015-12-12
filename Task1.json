@@ -1,0 +1,17 @@
+
+		var updateLocalData = function(data){
+			if()
+				localStorage.setItem('form', JSON.stringify(data));
+		}
+		
+		var getLocalData = function(){
+			if(supports_html5_storage()){
+				var formData = JSON.parse(localStorage.getItem('form'));
+				if(formData !== null)
+					return buildForm(formData);
+			}
+		}
+		
+		var buildForm(formData){
+		}
+				

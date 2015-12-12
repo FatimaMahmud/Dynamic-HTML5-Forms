@@ -1,30 +1,34 @@
-function adds(){
-		
+/*
+		var updateLocalData = function(data){
+			if()
+				localStorage.setItem('FORM', JSON.stringify(data));
 		}
 		
-		function addingForm(type) {
-
-			//Create an input type dynamically.
-			//var element = document.createElement("input");
-			var element1 = document.createElement("form");
-			//Assign different attributes to the element.
-			element.setAttribute("type", type);
-			element.setAttribute("value", type);
-			element.setAttribute("name", type);
-
-			var foo = document.getElementById("fooBar");
-
-			//Append the element in page (in span).
-			foo.appendChild(element);
-
+		var getLocalData = function(){
+			if(supports_html5_storage()){
+				var formData = JSON.parse(localStorage.getItem('FORM'));
+				if(formData !== null)
+					return buildForm(formData);
+			}
 		}
-		
+				*/
+		function loadDoc() {
+		  var xhttp = new XMLHttpRequest();
+		  xhttp.onreadystatechange = function() {
+			if (xhttp.readyState == 4 && xhttp.status == 200) {
+			  document.getElementById("FORM").innerHTML = xhttp.responseText;
+			}
+		  }
+		  xhttp.open("POST", "Task1.json", true);
+		  xhttp.send();
+		}
+
 		function promptMsg(){
 		var name = prompt("Enter the Form ID","type name");
 		var element1 = document.createElement('FORM');
-		element1.name='myForm';
+		element1.name= name;
 		element1.method='POST';
-		element1.action='http://www.another_page.com/index.htm';
+		element1.action='Test1.html';
 		
 		button1=document.createElement('INPUT');
 		button1.type='button';
@@ -103,4 +107,10 @@ function adds(){
 		foo1.appendChild(element1);
 		
 		}
-				
+		
+		function submitB(){
+		var foo1 = document.getElementById("fooBar1");
+		var element1 = document.getElementById('FORM');
+		alert(element1);
+		}
+		
